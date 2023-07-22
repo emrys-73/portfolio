@@ -69,13 +69,13 @@
 
 </script>
 
-<div class="w-full h-full bg-black bg-opacity-40 z-10">
+<div class="w-full h-full z-10">
 
 	<div class="w-full h-screen">
-		<div class="h-full grid grid-cols-4 xl:px-64 sm:px-10 md:px-20 lg:px-32 px-6">
-			<div class="col-span-2 justify-center items-center text-center flex flex-col">
+		<div class="h-full md:grid md:grid-cols-4 xl:px-64 sm:px-10 md:px-20 lg:px-32 px-6 content-center flex flex-col justify-center">
+			<div class="md:col-span-2 justify-center items-center text-center flex flex-col">
 				<div class="flex">
-					<h1 class="w-full text-left px-20  xl:text-5xl lg:text-4xl md:text-2xl sm:text-lg font-bold font-sans drop-shadow-lg">
+					<h1 class="w-full text-left  xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-bold font-sans drop-shadow-lg">
 						Hi, I'm Adrian
 					</h1>
 				</div>
@@ -95,9 +95,9 @@
 				</div>
 				
 			</div>
-			<div class="col-span-2">
-				<div class="w-full h-full flex justify-center items-center">
-					<Avatar src="/me.png" width="w-72" rounded="rounded-full" class=" drop-shadow-lg"/>
+			<div class="md:col-span-2">
+				<div class="w-full h-full flex justify-center items-center mt-10 md:mt-0">
+					<Avatar src="/me.png" rounded="rounded-full" class=" drop-shadow-lg w-32 md:w-44 lg:w-60 xl:w-72"/>
 				</div>
 	
 			</div>
@@ -107,13 +107,13 @@
 	</div>
 
 	<div class="h-[50vh]">
-		<div class="px-40 text-center flex justify-center items-center content-center flex-col">
+		<div class="px-2 md:px-40 text-center flex justify-center items-center content-center flex-col">
 			<h2 class="font-bold text-4xl">
 				Experience
 			</h2>
 			<GlassCard>
 				<!-- {expItem} -->
-				<div class="flex flex-row gap-3">
+				<div class="flex flex-col md:flex-row gap-3">
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<div on:click={() => {expItem = 0}} class="{expItem === 0 ? 'bg-white bg-opacity-60 rounded-full hover:text-black' : ''}">
 						<Button>
@@ -182,7 +182,7 @@
 	</div>
 	
 	<!-- AI Chat -->
-	<div class="w-full h-screen justify-center flex items-center">
+	<div class="w-full h-screen justify-center flex items-center mt-40 md:mt-0">
 		<div class="flex flex-col xl:px-64 sm:px-10 md:px-20 lg:px-32 px-6">
 			<div class="items-center justify-center text-center">
 				<h2 class="text-center text-3xl font-bold">
@@ -191,7 +191,7 @@
 				<p class="py-4">
 					My personal AI assistant is here to quickly answer any questions you might have on me or my projects.
 				</p>
-				<div class="px-40">
+				<div class="lg:px-40">
 					<GlassCard>
 						<div class="max-h-[400px] overflow-y-auto py-4 ">
 

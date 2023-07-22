@@ -7,12 +7,13 @@
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import 'iconify-icon'
+	import { Button } from '$lib/components';
 	
 	
 </script>
 
 
-<AppShell class="bg-[url('/portfolio_home.png')] bg-image text-white">
+<AppShell class="bg-[url('/home_2.png')] bg-image text-white">
 	<!-- (header) -->
 	<!-- (sidebarLeft) -->
 	<!-- (sidebarRight) -->
@@ -37,13 +38,13 @@
 			<svelte:fragment slot="trail">
 				
 	
-				<div class="flex-row hidden sm:flex">
+				<div class="flex-row flex">
 					<a href="mailto:montoya@astralta.com">
 						<div class="">
 							<div class="hover:-translate-y-0.5 transition ease-in-out md:mt-0.5">
-								<button class="btn bg-black bg-opacity-20 p-4 backdrop-blur-xl hover:bg-opacity-20 hover:bg-gray-300 rounded-full text-true-white font-semibold btn-sm md:text-md md:h-[2rem] border-none normal-case drop-shadow-2xl">
+								<Button>
 									Get in touch
-								</button>
+								</Button>
 							</div>
 						</div>
 					</a>
