@@ -3,7 +3,7 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { GlassCard, Button, NavItem } from '$lib/components';
 	import { useChat } from "ai/svelte";
-	import adrian from './adrian.json'
+	import adrian from '../adrian.json'
 	
 
 	let content = adrian.content;
