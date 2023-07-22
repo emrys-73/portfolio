@@ -204,11 +204,10 @@
 								  <div class="text-left text-true-white text-md bg-black rounded-xl bg-opacity-60 backdrop-blur-xl my-2 drop-shadow-xl">
 									<pre class="w-full p-2 px-4 overflow-y-auto whitespace-pre-wrap">{message.content}</pre></div>
 								  {:else}
-								  <div class="text-left text-true-white text-md bg-black rounded-xl bg-opacity-60 backdrop-blur-xl my-2 drop-shadow-xl ">
-									<h2 class="text-2xl text-true-white text-center">
-									  System training:
-									</h2>
-									<pre class="w-full p-2 px-4 overflow-y-auto whitespace-pre-wrap">{message.content}</pre></div>
+								  
+									<div>
+										
+									</div>	
 								  {/if}
 								</li>
 								{/each}
