@@ -3,16 +3,20 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { GlassCard, Button, NavItem } from '$lib/components';
 	import { useChat } from "ai/svelte";
+	import adrian from './adrian.json';
+
+	let content = adrian.content;
 
 	const { messages, handleSubmit, input } = useChat({
         api: "/chat",
+		initialMessages: [{"role": "system", "content": content}]
       });
 
       
-      let message;
+    let message;
 
-      input.subscribe((value) => message = value)
-      const MAX_ROWS = 10;
+    input.subscribe((value) => message = value)
+    const MAX_ROWS = 10;
 
 	$: rows = message.length > 0 ? Math.min(Math.ceil(message.length / 80), MAX_ROWS) : 1;
     $: rounded = rows > 1 ? "rounded-lg" : "rounded-full";
@@ -56,13 +60,13 @@
 		{
 			"title": "Horyzn Aerospace",
 			"position": "Software Consultant",
-			"duration": "2 years",
+			"duration": "6 months",
 			"skills": ["Creative Thinking", "TDD", "Adaptability"],
 			"img": "/astralta_ss.png",
 			"link": "https://horyzn.org/"
 		},
 		
-	]
+	];
 
 
 </script>
