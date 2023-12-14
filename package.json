@@ -43,10 +43,11 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-vercel": "^3.0.2",
-		"ai": "^2.1.24",
+		"ai": "^2.2.29",
 		"gsap": "^3.12.3",
 		"iconify-icon": "^1.0.8",
 		"motion": "^10.16.4",
+		"openai": "^4.21.0",
 		"openai-edge": "^1.2.1"
 	}
 }

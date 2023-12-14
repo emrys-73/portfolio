@@ -1,5 +1,8 @@
 <script>
+// @ts-nocheck
+
 	import { animate } from "../stores";
+	import { useChat } from 'ai/svelte'
 
 	const featuredProjects = [
 		{
@@ -21,6 +24,13 @@
 	]
 
 	const hoverblack = "hover:bg-black hover:bg-opacity-60"
+
+
+	const { messages, handleSubmit, input } = useChat({
+        api: "/chat",
+		initialMessages: [{"role": "system", "content": "You are Adrian's personal AI assistant and you live inside his webpage. Your goal is to clear any questions anyone might have about Adrian and you will only talk about him. If you don't know something you will encourage them to contact Adrian personally. Here is your knowledge base on Adrian: Identity: Adrian, male, Lima, Peru. Childhood Goals: Exploration, overcoming resource limits. Skills: Multilingual (German, English, Spanish, French, Romanian), musical talent (10 instruments), graphic design, photography. Academics: National Mathematics Olympiads (2nd place, age 11), Humboldt School scholarship. Early Ventures: Online sales (translations, graphic designs), wedding photography. Business Experience: Dropshipping store (age 16), various entrepreneurial projects. Volunteering: House-building for needy, raised $10,000. Passions: Psychology, science, engineering. Research: Algorithmic thinking in education. Higher Education: Computer Science, Technical University of Munich. Teaching: Tutor, lecturer in discrete structures. Authorship: Book on probability theory. Professional Roles: PLC Engineer (TUM Hyperloop), Software Consultant (Horyzn aerospace), Software Developer (.NET, Isar Aerospace), diverse tasks including market analysis, B2B negotiations, and interface design. Programming Skills: Python, Java, C#, C++, C, Haskell, OCaml. Design Work: Logos for Isar Aerospace. Religious Affiliation: Christian. Church Contribution: Software for song management, website development, social media marketing. AI Ventures: AI-enhanced tools development, custom-trained AI chatbots, partnership with Mino Lee, founder of Astralta (Studio PRO, Astralta Infinity). Startup Involvement: TUM.AI Startup Accelerator, co-founder of Aivery. Ongoing Projects: AI software development, Chrome Extension for LaTeX, Bible verse website. Personal Life: Single, enjoys music, singing, gym, sports, passionate learner and inventor."}],
+      });
+
 
 </script>
 
@@ -58,7 +68,7 @@
 				<div class="w-full rounded-2xl h-60 sm:h-80 lg:h-[450px] altashadow grid grid-rows-4 overflow-hidden relative ">
 					<div class="h-full {fp["img-class"]} row-span-3 bg-image">
 					</div>
-					<div class="{$animate} absolute bottom-0 w-full row-span-1 backdrop-blur-lg flex flex-col gap-0 justify-start items-start p-4 overflow-auto h-20 sm:h-24 md:h-32 {hoverblack}">
+					<div class="{$animate} absolute bottom-0 w-full row-span-1 backdrop-blur-lg flex flex-col gap-0 justify-start items-start p-4 overflow-auto h-20 sm:h-24 md:h-32 bg-black bg-opacity-60">
 						<span class="text-lg font-semibold xl:text-xl">
 							{fp.name}
 						</span>
@@ -173,8 +183,46 @@
 
 
 	<!-- AI -->
-	<!-- <section id="ai" class="w-full gap-1 flex flex-col py-10">
+	<section id="ai" class="w-full gap-1 flex flex-col py-10">
+		<div class="py-4">
+			<span class="text-2xl font-semibold ">
+				Ask anything
+			</span>
+			<!-- <span>
+				Talk to my AI assistant to clear out any questions you might have about me. For further inquiries feel free to reach out to me personally.
+			</span> -->
+		</div>
+
+		<div class=" backdrop-blur-3xl altashadow rounded-xl  max-h-[400px] relative w-full overflow-hidden">
+
+			<div class="overflow-auto max-h-[300px] min-h-[70px] pb-20 z-10">
+				<ul>
+					{#each $messages as message}
+						{#if message.role == "user"}
+							<li class="bg-white bg-opacity-10 px-4 py-2">{message.content}</li>
+						{:else}
+							{#if message.role == "assistant"}
+								<li class="bg-black px-4 py-2 bg-opacity-40">{message.content}</li>
+							{/if}
+						{/if}
+					{/each}
+				</ul>
+
+			</div>
 
 
-	</section> -->
+			<div class="absolute bottom-0 w-full p-4 backdrop-blur-3xl bg-black bg-opacity-40 rounded-xl">
+				<form on:submit={handleSubmit} class="flex flex-row gap-2 items-center">
+					<input class="bg-black border-none bg-opacity-40 rounded-lg placeholder:text-opacity-40 placeholder:text-gray-100 placeholder:italic w-full" placeholder="Type your message here" bind:value={$input} />
+					<button type="submit" class="jusitfy-center items-center text-center">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="{$animate} w-6 h-6 opacity-40 hover:opacity-100">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+						  </svg>
+						  
+					</button>
+				  </form>
+			</div>
+			
+		</div>
+	</section>
 </div>
