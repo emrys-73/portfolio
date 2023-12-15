@@ -79,7 +79,7 @@
 
 <AppShell class="bg-[url('/bg_25.png')] bg-image text-white">
 	
-	<div class="sm:hidden h-20 p-4 px-6 backdrop-blur-lg z-20 justify-between flex flex-row fixed top-0 w-full">
+	<div class="sm:hidden h-20 p-4 px-6 backdrop-blur-3xl z-20 justify-between flex flex-row fixed top-0 w-full">
 		<div class="flex flex-row gap-2 justify-center items-center">
 			<img src="/me.png" class=" w-12 rounded-full altashadow" alt="">
 			<!-- <span class="text-4xl font-semibold tracking-wide">
@@ -100,11 +100,11 @@
 
 
 	<svelte:fragment slot="sidebarLeft">
-		<div class="hidden sm:flex sm:w-[200px] lg:w-[280px] h-full flex-col justify-start relative backdrop-blur-md bg-black bg-opacity-0">
+		<div class="hidden sm:flex sm:w-[200px] lg:w-[280px] h-full flex-col justify-start relative backdrop-blur-lg bg-black bg-opacity-0">
 			<!-- Profile Picture & Mail -->
 			<section class=" py-12 flex flex-col justify-center items-center gap-4">
 				<img src="/me.png" class=" w-3/4 rounded-full altashadow" alt="">
-				<a href="mailto:montoya@astralta.com" class="{$animate} altashadow text-center bg-black rounded-full bg-opacity-40 py-1 flex justify-center px-4 flex-row items-center gap-1 opacity-60 hover:opacity-100 hover:px-6">
+				<a href="mailto:montoya@astralta.com" class="{$animate} altashadow text-center bg-black rounded-full bg-opacity-60 py-1 flex justify-center px-4 flex-row items-center gap-1 opacity-60 hover:opacity-100 hover:px-6">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 justify-center flex-col items-center flex">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
 					  </svg>
@@ -116,7 +116,7 @@
 			<section class="w-full px-4 flex flex-col gap-2">
 				{#each menu as m}	
 					{#if m.active}
-					<a href={m.url} class="{$animate} bg-black bg-opacity-0 rounded-xl opacity-60 hover:opacity-100 py-2 w-full flex flex-row gap-2 justify-start items-center px-4">
+					<a href={m.url} class="{$animate} bg-black bg-opacity-0 rounded-xl opacity-80 text-md hover:text-lg hover:opacity-100 py-2 w-full flex flex-row gap-2 justify-start items-center px-4">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 flex">
 							<path stroke-linecap="round" stroke-linejoin="round" d={m.icon} />
 						  </svg>		
